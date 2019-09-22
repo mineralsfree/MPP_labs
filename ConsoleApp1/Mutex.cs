@@ -6,20 +6,20 @@ namespace ConsoleApp1
 {
     public class Mutex
     {
-        private int value;    
-       public Mutex(int intialValue)
+        private int _value;    
+       public Mutex(int initialValue)
         {
-            if (intialValue > 1 || intialValue < 0)
+            if (initialValue > 1 || initialValue < 0)
             {
                 throw new ArgumentOutOfRangeException();
             }
 
-            this.value = intialValue;
+            _value = initialValue;
         }
 
        public void Unlock()
        {
-           while (Interlocked.CompareExchange(ref this.value, 0, 1) == 0)
+           while (Interlocked.CompareExchange(ref _value, 1, 0) == 1)
            {
                Thread.Sleep(10);
            } 
@@ -27,9 +27,10 @@ namespace ConsoleApp1
 
        public void Lock()
        {
-           while (Interlocked.CompareExchange(ref this.value, 1, 0) == 1)
+           int inval = _value;
+           while (Interlocked.CompareExchange(ref _value, 0, 1) == inval)
            {
-               Thread.Sleep(10);
+               Thread.Sleep(100);
            }
        }
     }

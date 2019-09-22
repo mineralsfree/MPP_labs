@@ -19,7 +19,7 @@ namespace ConsoleApp1
             // so that the entire semaphore count is initially
             // owned by the main program thread.
             //
-            _pool = new Mutex(0);
+            _pool = new Mutex(1);
 
             // Create and start five numbered threads. 
             //
@@ -35,7 +35,7 @@ namespace ConsoleApp1
             // Wait for half a second, to allow all the
             // threads to start and to block on the semaphore.
             //
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
 
             // The main thread starts out holding the entire
             // semaphore count. Calling Release(3) brings the 
@@ -49,7 +49,9 @@ namespace ConsoleApp1
         }
 
         private static void Worker(object num)
-        {
+        {            int padding = Interlocked.Add(ref _padding, 100);
+            Thread.Sleep(1000 + padding);
+
             // Each worker thread begins by requesting the
             // semaphore.
             Console.WriteLine("Thread {0} begins " +
@@ -57,7 +59,6 @@ namespace ConsoleApp1
             _pool.Lock();
 
             // A padding interval to make the output more orderly.
-            int padding = Interlocked.Add(ref _padding, 100);
 
             Console.WriteLine("Thread {0} enters the semaphore.", num);
 
