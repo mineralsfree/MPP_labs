@@ -50,7 +50,6 @@ namespace ConsoleApp1
 
         private static void Worker(object num)
         {            int padding = Interlocked.Add(ref _padding, 100);
-            Thread.Sleep(1000 + padding);
 
             // Each worker thread begins by requesting the
             // semaphore.
