@@ -1,19 +1,18 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\Users\\User\\RiderProjects\\lab2\\ConsoleApp1\\ConsoleApp1.csproj",
+    "projectUniqueName": "/home/nikita/MPP/MPP_labs/ConsoleApp1/ConsoleApp1.csproj",
     "projectName": "ConsoleApp1",
-    "projectPath": "C:\\Users\\User\\RiderProjects\\lab2\\ConsoleApp1\\ConsoleApp1.csproj",
-    "outputPath": "C:\\Users\\User\\RiderProjects\\lab2\\ConsoleApp1\\obj\\",
+    "projectPath": "/home/nikita/MPP/MPP_labs/ConsoleApp1/ConsoleApp1.csproj",
+    "outputPath": "/home/nikita/MPP/MPP_labs/ConsoleApp1/obj/",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
-      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      "/usr/share/dotnet/sdk/NuGetFallbackFolder"
     ],
     "originalTargetFrameworks": [
       "netcoreapp2.2"
     ],
     "sources": {
-      "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
       "https://api.nuget.org/v3/index.json": {}
     },
     "frameworks": {

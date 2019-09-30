@@ -1,30 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\RiderProjects\\lab2\\ConsoleApp2\\ConsoleApp2.csproj": {}
+    "/home/nikita/MPP/MPP_labs/ConsoleApp2/ConsoleApp2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\RiderProjects\\lab2\\ConsoleApp2\\ConsoleApp2.csproj": {
+    "/home/nikita/MPP/MPP_labs/ConsoleApp2/ConsoleApp2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\RiderProjects\\lab2\\ConsoleApp2\\ConsoleApp2.csproj",
+        "projectUniqueName": "/home/nikita/MPP/MPP_labs/ConsoleApp2/ConsoleApp2.csproj",
         "projectName": "ConsoleApp2",
-        "projectPath": "C:\\Users\\User\\RiderProjects\\lab2\\ConsoleApp2\\ConsoleApp2.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\RiderProjects\\lab2\\ConsoleApp2\\obj\\",
+        "projectPath": "/home/nikita/MPP/MPP_labs/ConsoleApp2/ConsoleApp2.csproj",
+        "packagesPath": "/home/nikita/.nuget/packages/",
+        "outputPath": "/home/nikita/MPP/MPP_labs/ConsoleApp2/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/nikita/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

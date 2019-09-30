@@ -9,11 +9,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 
 namespace WebApplication1
 {
     public class Startup
     {
+        private Roulette roulette = new Roulette();
+        
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -22,21 +25,15 @@ namespace WebApplication1
 
         private async Task Echo(HttpContext context, WebSocket webSocket)
         {
-            var buffer = new byte[1024 * 4];
-            WebSocketReceiveResult result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
-            while (!result.CloseStatus.HasValue)
-            {
-                string res = "Csharp is shit";
-                buffer = Encoding.UTF8.GetBytes("Csharp is shit");
-                await webSocket.SendAsync(new ArraySegment<byte>(buffer, 0, res.Length), result.MessageType, result.EndOfMessage, CancellationToken.None);
-
-                result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
-            }
-            await webSocket.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
+            WebSocketSession webSocketSession = new WebSocketSession(webSocket);
+            roulette.OnRoll += webSocketSession.OnRoll;
+            await webSocketSession.Listen();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            Thread thread1 = new Thread(roulette.Start);
+            thread1.Start();
             var webSocketOptions = new WebSocketOptions() 
             {
                 KeepAliveInterval = TimeSpan.FromSeconds(120),
@@ -70,7 +67,7 @@ namespace WebApplication1
 
             });
 
-            app.Run(async (context) => { await context.Response.WriteAsync("<h1>Hello World</h1>"); });
+           // app.Run(async (context) => { await context.Response.WriteAsync("<h1>Hello World</h1>"); });
         }
     }
 }
